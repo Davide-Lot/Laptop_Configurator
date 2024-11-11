@@ -1,0 +1,41 @@
+plugins {
+    // Plugin per creare un'applicazione Java
+    id 'application'
+}
+
+repositories {
+    // Maven Central rimane come repository per scaricare le dipendenze
+    mavenCentral()
+}
+
+dependencies {
+    // Dipendenze per i test con JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
+
+    // Dipendenze necessarie per Apache Jena
+    implementation 'org.apache.jena:jena-core:4.8.0'
+    implementation 'org.apache.jena:jena-arq:4.8.0' // Per supporto SPARQL
+    implementation 'org.apache.jena:jena-iri:4.8.0' // Per parsing degli IRI
+    implementation 'org.apache.jena:jena-tdb:4.8.0' // Per storage TDB
+
+    // Guava
+    implementation 'com.google.guava:guava:31.0.1-jre' // Aggiungi questa dipendenza per Guava
+}
+
+java {
+    toolchain {
+        // Definisci la versione di Java da usare, come nel tuo esempio
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+application {
+    // Definisce la classe principale dell’applicazione
+    mainClass = 'laptop_configurator.App'
+}
+
+tasks.named('test') {
+    // Configura JUnit Platform per i test
+    useJUnitPlatform()
+}

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:ex="http://example.org/configuratore_laptop#">
+
+    <!-- Ontologia: Configuratore Laptop -->
+    <owl:Ontology rdf:about="http://example.org/configuratore_laptop"/>
+    
+    <!-- Classes -->
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#Laptop"/>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#Component"/>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#CPU">
+        <rdfs:subClassOf rdf:resource="http://example.org/configuratore_laptop#Component"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#GPU">
+        <rdfs:subClassOf rdf:resource="http://example.org/configuratore_laptop#Component"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#RAM">
+        <rdfs:subClassOf rdf:resource="http://example.org/configuratore_laptop#Component"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#Storage">
+        <rdfs:subClassOf rdf:resource="http://example.org/configuratore_laptop#Component"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#Display">
+        <rdfs:subClassOf rdf:resource="http://example.org/configuratore_laptop#Component"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#Battery">
+        <rdfs:subClassOf rdf:resource="http://example.org/configuratore_laptop#Component"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#OperatingSystem"/>
+    <owl:Class rdf:about="http://example.org/configuratore_laptop#Brand"/>
+    
+    <!-- Object Properties -->
+    <owl:ObjectProperty rdf:about="http://example.org/configuratore_laptop#hasComponent"/>
+    <owl:ObjectProperty rdf:about="http://example.org/configuratore_laptop#hasCPU">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#Laptop"/>
+        <rdfs:range rdf:resource="http://example.org/configuratore_laptop#CPU"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://example.org/configuratore_laptop#hasGPU">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#Laptop"/>
+        <rdfs:range rdf:resource="http://example.org/configuratore_laptop#GPU"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://example.org/configuratore_laptop#hasRAM">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#Laptop"/>
+        <rdfs:range rdf:resource="http://example.org/configuratore_laptop#RAM"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://example.org/configuratore_laptop#hasStorage">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#Laptop"/>
+        <rdfs:range rdf:resource="http://example.org/configuratore_laptop#Storage"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://example.org/configuratore_laptop#hasDisplay">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#Laptop"/>
+        <rdfs:range rdf:resource="http://example.org/configuratore_laptop#Display"/>
+    </owl:ObjectProperty>
+
+    <!-- Data Properties -->
+    <owl:DatatypeProperty rdf:about="http://example.org/configuratore_laptop#batteryCapacity">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#Battery"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://example.org/configuratore_laptop#displayResolution">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#Display"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://example.org/configuratore_laptop#storageSize">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#Storage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://example.org/configuratore_laptop#ramSize">
+        <rdfs:domain rdf:resource="http://example.org/configuratore_laptop#RAM"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+
+    <!-- Individuals -->
+    <ex:Laptop_001 rdf:about="http://example.org/configuratore_laptop#Laptop_001">
+        <rdf:type rdf:resource="http://example.org/configuratore_laptop#Laptop"/>
+        <ex:hasCPU rdf:resource="http://example.org/configuratore_laptop#Intel_i7_1165G7"/>
+        <ex:hasGPU rdf:resource="http://example.org/configuratore_laptop#NVIDIA_GTX1650"/>
+        <ex:hasRAM rdf:resource="http://example.org/configuratore_laptop#RAM_16GB"/>
+        <ex:hasStorage rdf:resource="http://example.org/configuratore_laptop#SSD_512GB"/>
+        <ex:hasDisplay rdf:resource="http://example.org/configuratore_laptop#Display_FullHD_15"/>
+    </ex:Laptop_001>
+
+    <ex:Intel_i7_1165G7 rdf:about="http://example.org/configuratore_laptop#Intel_i7_1165G7">
+        <rdf:type rdf:resource="http://example.org/configuratore_laptop#CPU"/>
+    </ex:Intel_i7_1165G7>
+
+    <ex:NVIDIA_GTX1650 rdf:about="http://example.org/configuratore_laptop#NVIDIA_GTX1650">
+        <rdf:type rdf:resource="http://example.org/configuratore_laptop#GPU"/>
+    </ex:NVIDIA_GTX1650>
+
+    <ex:RAM_16GB rdf:about="http://example.org/configuratore_laptop#RAM_16GB">
+        <rdf:type rdf:resource="http://example.org/configuratore_laptop#RAM"/>
+        <ex:ramSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</ex:ramSize>
+    </ex:RAM_16GB>
+
+    <ex:SSD_512GB rdf:about="http://example.org/configuratore_laptop#SSD_512GB">
+        <rdf:type rdf:resource="http://example.org/configuratore_laptop#Storage"/>
+        <ex:storageSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">512</ex:storageSize>
+    </ex:SSD_512GB>
+
+    <ex:Display_FullHD_15 rdf:about="http://example.org/configuratore_laptop#Display_FullHD_15">
+        <rdf:type rdf:resource="http://example.org/configuratore_laptop#Display"/>
+        <ex:displayResolution rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1920x1080</ex:displayResolution>
+    </ex:Display_FullHD_15>
+
+</rdf:RDF>
